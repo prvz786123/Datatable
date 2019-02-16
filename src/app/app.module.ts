@@ -1,18 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from "@angular/http";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//Third Party Modules
+import { DataTableModule } from "angular2-datatable";
+
+//services
+import { TableService } from "./services/table.service";
+import { FilterPipe } from './pipes/filter.pipe'
+
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    DataTableModule,
   ],
-  providers: [],
+  providers: [
+    TableService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
